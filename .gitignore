@@ -281,6 +281,11 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
-!/.idea/misc.xml
-!/.idea/modules.xml
-!/.idea/Assignment.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/Assignment.iml
+/.idea/vcs.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/MongoDB tutorial-GeraldBalekaki.pdf
+/.idea/inspectionProfiles/

@@ -4,7 +4,7 @@
       "$oid": "p1"
     },
     "threat_level": 10,
-    "name": "Adolf Hitler",
+    "name": "John Doe",
     "date_of_birth": {
       "$date": {
         "$numberLong": "1332804016000"
@@ -125,7 +125,7 @@
     "_id": {
       "$oid": "f1"
     },
-    "name": "file_name",
+    "name": "file_name.pdf",
     "contents": "bindata",
     "person_id": "p1"
   }

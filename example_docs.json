@@ -1,7 +1,7 @@
 {
   "People": {
     "_id": {
-      "$oid": "p1"
+      "$oid": "5ecbe3c11c1b2933e5a27032"
     },
     "threat_level": 10,
     "name": "John Doe",
@@ -13,76 +13,8 @@
     "country_of_birth": "Germany",
     "current_location": {
       "_id": {
-        "$oid": "l1"
+        "$oid": "5ecbe9923424a5bf93c3e1ef"
       },
-      "person_id": "p1",
-      "location": {
-        "address": {
-          "street1": "340 W Market",
-          "city": "Bloomington",
-          "state": "MN",
-          "zipcode": "55425"
-        },
-        "geo": {
-          "type": "Point",
-          "coordinates": [
-            {
-              "$numberDouble": "-93.24565"
-            },
-            {
-              "$numberDouble": "44.85466"
-            }
-          ]
-        }
-      },
-      "timestamp": {
-        "$date": {
-          "$numberLong": "1332804016000"
-        }
-      }
-    },
-    "recent_searches": [
-      {
-        "_id": {
-          "$oid": "s1"
-        },
-        "url": "https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1",
-        "timestamp": {
-          "$date": {
-            "$numberLong": "1332804516000"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "s2"
-        },
-        "url": "https://www.mongodb.com/blog/post/designing-the-perfect-prototyping-workflow-and-collaboration-platform-in-the-cloud",
-        "timestamp": {
-          "$date": {
-            "$numberLong": "1333804016000"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "s3"
-        },
-        "url": "https://hangouts.google.com/",
-        "timestamp": {
-          "$date": {
-            "$numberLong": "1322804016000"
-          }
-        }
-      }
-    ]
-  },
-  "Locations": {
-    "_id": {
-      "$oid": "l1"
-    },
-    "person_id": "p1",
-    "location": {
       "address": {
         "street1": "340 W Market",
         "city": "Bloomington",
@@ -99,17 +31,90 @@
             "$numberDouble": "44.85466"
           }
         ]
+      },
+      "timestamp": {
+        "$date": {
+          "$numberLong": "1332804016000"
+        }
+      },
+      "person_id": "5ecbe3c11c1b2933e5a27032"
+    },
+    "recent_searches": [
+      {
+        "_id": {
+          "$oid": "5ecbea283424a5bf93c3e1f0"
+        },
+        "ip": "199.2.04.135",
+        "device_description": "Samsung S8",
+        "url": "https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1",
+        "timestamp": {
+          "$date": {
+            "$numberLong": "1332804016000"
+          }
+        },
+        "person_id": "5ecbe3c11c1b2933e5a27032"
+      },
+      {
+        "_id": {
+          "$oid": "5ecbeb783424a5bf93c3e1f5"
+        },
+        "ip": "199.2.04.135",
+        "device_description": "Samsung S8",
+        "url": "https://www.mongodb.com/blog/post/designing-the-perfect-prototyping-workflow-and-collaboration-platform-in-the-cloud",
+        "timestamp": {
+          "$date": {
+            "$numberLong": "1333804016000"
+          }
+        },
+        "person_id": "5ecbe3c11c1b2933e5a27032"
+      },
+      {
+        "_id": {
+          "$oid": "5ecbebc53424a5bf93c3e1f6"
+        },
+        "ip": "199.2.04.135",
+        "device_description": "Samsung S8",
+        "url": "https://hangouts.google.com/",
+        "timestamp": {
+          "$date": {
+            "$numberLong": "1322804016000"
+          }
+        },
+        "person_id": "5ecbe3c11c1b2933e5a27032"
       }
+    ]
+  },
+  "Locations": {
+    "_id": {
+      "$oid": "5ecbe9923424a5bf93c3e1ef"
+    },
+    "address": {
+      "street1": "340 W Market",
+      "city": "Bloomington",
+      "state": "MN",
+      "zipcode": "55425"
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        {
+          "$numberDouble": "-93.24565"
+        },
+        {
+          "$numberDouble": "44.85466"
+        }
+      ]
     },
     "timestamp": {
       "$date": {
         "$numberLong": "1332804016000"
       }
-    }
+    },
+    "person_id": "5ecbe3c11c1b2933e5a27032"
   },
   "Searches": {
     "_id": {
-      "$oid": "s1"
+      "$oid": "5ecbea283424a5bf93c3e1f0"
     },
     "ip": "199.2.04.135",
     "device_description": "Samsung S8",
@@ -119,14 +124,14 @@
         "$numberLong": "1332804016000"
       }
     },
-    "person_id": "p1"
+    "person_id": "5ecbe3c11c1b2933e5a27032"
   },
   "Files": {
     "_id": {
-      "$oid": "f1"
+      "$oid": "5ecbea783424a5bf93c3e1f3"
     },
     "name": "file_name.pdf",
     "contents": "bindata",
-    "person_id": "p1"
+    "person_id": "5ecbe3c11c1b2933e5a27032"
   }
 }

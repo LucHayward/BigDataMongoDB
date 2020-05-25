@@ -5,3 +5,6 @@ from random import randint
 
 # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.net/test?retryWrites=true&w=majority")
+
+# Database name = NSA
+# Collections = Files, Locations, People, Searches

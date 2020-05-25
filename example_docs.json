@@ -10,7 +10,7 @@
         "$numberLong": "1332804016000"
       }
     },
-    "Country": "Germany",
+    "country_of_birth": "Germany",
     "current_location": {
       "_id": {
         "$oid": "l1"

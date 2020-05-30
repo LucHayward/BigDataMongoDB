@@ -1,115 +1,76 @@
 {
   "People": {
     "_id": {
-      "$oid": "5ecbe3c11c1b2933e5a27032"
+      "$oid": "5ed2d772a56bbefd185d0037"
     },
-    "threat_level": 10,
-    "name": "John Doe",
-    "date_of_birth": {
-      "$date": {
-        "$numberLong": "1332804016000"
-      }
-    },
-    "country_of_birth": "Germany",
+    "country_of_birth": "South Africa",
     "current_location": {
       "_id": {
         "$oid": "5ecbe9923424a5bf93c3e1ef"
       },
       "address": {
-        "street1": "340 W Market",
-        "city": "Bloomington",
-        "state": "MN",
-        "zipcode": "55425"
+        "street": "45 SpaceX Complex",
+        "city": "Austin",
+        "state": "Texas",
+        "zipcode": "1111"
       },
       "geo": {
         "type": "Point",
         "coordinates": [
-          {
-            "$numberDouble": "-93.24565"
-          },
-          {
-            "$numberDouble": "44.85466"
-          }
+          77.3325,
+          -18.5646
         ]
       },
       "timestamp": {
-        "$date": {
-          "$numberLong": "1332804016000"
-        }
-      },
-      "person_id": "5ecbe3c11c1b2933e5a27032"
+        "$date": "2020-05-31T00:00:18.102Z"
+      }
     },
+    "date_of_birth": {
+      "$date": "1971-11-10T11:50:32.000Z"
+    },
+    "name": "Elon Musk",
     "recent_searches": [
       {
         "_id": {
           "$oid": "5ecbea283424a5bf93c3e1f0"
         },
-        "ip": "199.2.04.135",
-        "device_description": "Samsung S8",
-        "url": "https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1",
+        "ip": "106.154.110.148",
+        "device_description": "iPhone 11",
+        "url": "https://www.google.com/?q=XVGT72-DEATH-V11+22MHz+controller+missile+heat+lock+wont+disengage+stackoverflow",
         "timestamp": {
-          "$date": {
-            "$numberLong": "1332804016000"
-          }
+          "$date": "2020-05-31T00:00:18.102Z"
         }
-      },
-      {
-        "_id": {
-          "$oid": "5ecbeb783424a5bf93c3e1f5"
-        },
-        "ip": "199.2.04.135",
-        "device_description": "Samsung S8",
-        "url": "https://www.mongodb.com/blog/post/designing-the-perfect-prototyping-workflow-and-collaboration-platform-in-the-cloud",
-        "timestamp": {
-          "$date": {
-            "$numberLong": "1333804016000"
-          }
-        },
-        "person_id": "5ecbe3c11c1b2933e5a27032"
-      },
-      {
-        "_id": {
-          "$oid": "5ecbebc53424a5bf93c3e1f6"
-        },
-        "ip": "199.2.04.135",
-        "device_description": "Samsung S8",
-        "url": "https://hangouts.google.com/",
-        "timestamp": {
-          "$date": {
-            "$numberLong": "1322804016000"
-          }
-        },
-        "person_id": "5ecbe3c11c1b2933e5a27032"
       }
-    ]
+    ],
+    "threat_level": 11
   },
   "Locations": {
     "_id": {
-      "$oid": "5ecbe9923424a5bf93c3e1ef"
-    },
-    "address": {
-      "street1": "340 W Market",
-      "city": "Bloomington",
-      "state": "MN",
-      "zipcode": "55425"
-    },
-    "geo": {
-      "type": "Point",
-      "coordinates": [
-        {
-          "$numberDouble": "-93.24565"
-        },
-        {
-          "$numberDouble": "44.85466"
-        }
-      ]
-    },
-    "timestamp": {
-      "$date": {
-        "$numberLong": "1332804016000"
+        "$oid": "5ecbe9923424a5bf93c3e1ef"
+      },
+      "address": {
+        "street": "45 SpaceX Complex",
+        "city": "Austin",
+        "state": "Texas",
+        "zipcode": "1111"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          77.3325,
+          -18.5646
+        ]
+      },
+      "timestamp": {
+        "$date": "2020-05-31T00:00:18.102Z"
       }
     },
-    "person_id": "5ecbe3c11c1b2933e5a27032"
+    "timestamp": {
+      "$date": "2020-05-31T00:00:18.102Z"
+    },
+    "person_id": {
+      "$oid": "5ed2d772a56bbefd185d0037"
+    }
   },
   "Searches": {
     "_id": {
@@ -123,14 +84,18 @@
         "$numberLong": "1332804016000"
       }
     },
-    "person_id": "5ecbe3c11c1b2933e5a27032"
+    "person_id": {
+      "$oid": "5ed2d772a56bbefd185d0037"
+    }
   },
   "Files": {
     "_id": {
       "$oid": "5ecbea783424a5bf93c3e1f3"
     },
     "name": "file_name.pdf",
-    "contents": "bindata",
-    "person_id": "5ecbe3c11c1b2933e5a27032"
+    "contents": "This should be binary file data",
+    "person_id": {
+      "$oid": "5ed2d772a56bbefd185d0037"
+    }
   }
 }

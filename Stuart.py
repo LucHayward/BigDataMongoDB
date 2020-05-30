@@ -95,6 +95,11 @@ person_3 = {"threat_level": 11,
 # insert multiple records at once
 db.People.insert_many([person_1, person_2, person_3])
 
+# aggregate using people's names
+x = db.People.aggregate([{"$group": {"_id": "$name", "count": {"$sum": 1}}}])
+for person in x:
+    print(person)
+
 # (for debugging) print out the list of people
 x = db.People.find()
 for person in x:

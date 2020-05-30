@@ -46,24 +46,20 @@
   },
   "Locations": {
     "_id": {
-        "$oid": "5ecbe9923424a5bf93c3e1ef"
-      },
-      "address": {
-        "street": "45 SpaceX Complex",
-        "city": "Austin",
-        "state": "Texas",
-        "zipcode": "1111"
-      },
-      "geo": {
-        "type": "Point",
-        "coordinates": [
-          77.3325,
-          -18.5646
-        ]
-      },
-      "timestamp": {
-        "$date": "2020-05-31T00:00:18.102Z"
-      }
+      "$oid": "5ecbe9923424a5bf93c3e1ef"
+    },
+    "address": {
+      "street": "45 SpaceX Complex",
+      "city": "Austin",
+      "state": "Texas",
+      "zipcode": "1111"
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        77.3325,
+        -18.5646
+      ]
     },
     "timestamp": {
       "$date": "2020-05-31T00:00:18.102Z"

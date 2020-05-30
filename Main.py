@@ -12,18 +12,46 @@ db = client.NSA
 # db.list_collection_names()
 # Collections = Files, Locations, People, Searches
 
+# db.Locations.insert_one({
+#     "_id": {
+#         "$oid": "5ecbe9923424a5bf93c3e1ef"
+#     },
+#     "address": {
+#         "street1": "340 W Market",
+#         "city": "Bloomington",
+#         "state": "MN",
+#         "zipcode": "55425"
+#     },
+#     "geo": {
+#         "type": "Point",
+#         "coordinates": [
+#             {
+#                 "$numberDouble": "-93.24565"
+#             },
+#             {
+#                 "$numberDouble": "44.85466"
+#             }
+#         ]
+#     },
+#     "timestamp": {
+#         "$date": {
+#             "$numberLong": "1332804016000"
+#         }
+#     },
+#     "person_id": "5ecbe3c11c1b2933e5a27032"})
+
 # TODO: Find Dataset
 
 # TODO: Design the database
 
 # TODO: Create and load the data in the database (in code, show)
-    # TODO: Use insert_many() (for performance)?
-    # TODO: Must include tests to show everything is correct
+# TODO: Use insert_many() (for performance)?
+# TODO: Must include tests to show everything is correct
 
 # TODO: Database comparison writeups
-    # TODO: Decide who will take each DB (Graph, Key-Value, Column-Family, Relational
-    # TODO: For each say what role it could have if polyglot persistence is used, why (or if not useable, also why)
-    #       You may include other data/use-cases not yet mentioned
+# TODO: Decide who will take each DB (Graph, Key-Value, Column-Family, Relational
+# TODO: For each say what role it could have if polyglot persistence is used, why (or if not useable, also why)
+#       You may include other data/use-cases not yet mentioned
 
 # TODO: Test a variety of DB operations (show output), 4 each, sounds like actual testing is needed
 

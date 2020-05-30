@@ -1,5 +1,6 @@
 import datetime
 
+from bson import ObjectId
 from pymongo import MongoClient
 # pprint library is used to make the output look more pretty
 from pprint import pprint
@@ -99,6 +100,9 @@ db.People.insert_many([person_1, person_2, person_3])
 x = db.People.aggregate([{"$group": {"_id": "$name", "count": {"$sum": 1}}}])
 for person in x:
     print(person)
+
+# delete files for a specific user
+db.Files.delete_many({'_id': ObjectId('5ecbea783424a5bf93c3e1f3')})
 
 # (for debugging) print out the list of people
 x = db.People.find()

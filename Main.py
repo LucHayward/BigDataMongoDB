@@ -21,6 +21,11 @@ locationQuery = {"geo": {"$nearSphere": [93.24565, -44.8546]}}
 for x in locations.find(locationQuery):
     pprint(x)
 
+# Leonard's query
+print("Update the threat level of all the people born in Germany by 1")
+update = col.update_many({"country_of_birth" : "Germany"}, {"$inc": { "threat_level" : 1}})
+print(update.modified_count , "documents modified")
+
 # db.Locations.insert_one({
 #     "_id": {
 #         "$oid": "5ecbe9923424a5bf93c3e1ef"

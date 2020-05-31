@@ -18,7 +18,7 @@ col.insert_one({
     },
     "geo": {
         "type": "Point",
-        "coordinates": [-44.85466 , 93.24565]
+        "coordinates": [93.24565, -44.85466]
     },
     "timestamp": datetime.datetime.strptime("2019-10-13T10:53:53.000Z", "%Y-%m-%dT%H:%M:%S.000Z"),
     "person_id": ObjectId("5eceb3f059e783337f050986")

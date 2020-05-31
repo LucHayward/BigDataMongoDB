@@ -11,6 +11,15 @@ client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.
 db = client.NSA
 # db.list_collection_names()
 # Collections = Files, Locations, People, Searches
+locations = mydb.Locations
+searches = mydb.Searches
+people = mydb.People
+
+# Keegan's query
+print("Find all locations that have been recorded that are near [93.24565, -44.8546]")
+locationQuery = {"geo": {"$nearSphere": [93.24565, -44.8546]}}
+for x in locations.find(locationQuery):
+    pprint(x)
 
 # db.Locations.insert_one({
 #     "_id": {

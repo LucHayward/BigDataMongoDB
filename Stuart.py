@@ -94,11 +94,11 @@ person_3 = {"threat_level": 11,
             }
 
 # insert multiple records at once
-# result = db.People.insert_many([person_1, person_2, person_3])
-# inserted_ids = result.inserted_ids
-# print(inserted_ids)
+result = db.People.insert_many([person_1, person_2, person_3])
+inserted_ids = result.inserted_ids
+print(inserted_ids)
 
-# aggregate using people's names
+# aggregate using people's current city (count the number of people currently in each city
 x = db.People.aggregate([{"$group": {"_id": "$name", "count": {"$sum": 1}}}])
 for person in x:
     print(person)

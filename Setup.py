@@ -1,12 +1,13 @@
+# Contributors: Luc Hayward
+
 # This is a setup file showing all the information I used to configure the database correctly
 # Of specific interest is the code used to create and check the indexes for the collections
-# I also include an example insert here although there are many such examples in some of the members code
-# Although we recognise that in mongodb no collections are actually made until data is inserted.
-
+# We have also included some data insert files showing how to add additional data to the db
 from pymongo import MongoClient, GEOSPHERE
 from bson.son import SON
 from bson import ObjectId
 from pprint import pprint
+
 print("Connecting MongoClient")
 # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.net/test?retryWrites=true&w=majority")
@@ -29,7 +30,6 @@ print("Ensuring Searches indexes")
 pprint(db.Searches.create_index("person_id"))
 print("Ensuring Files indexes")
 pprint(db.Files.create_index("person_id"))
-
 
 print("\n\nIndex information:\nPeople:")
 pprint(db.People.index_information())

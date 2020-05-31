@@ -11,9 +11,9 @@ client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.
 db = client.NSA
 # db.list_collection_names()
 # Collections = Files, Locations, People, Searches
-locations = mydb.Locations
-searches = mydb.Searches
-people = mydb.People
+locations = db.Locations
+searches = db.Searches
+people = db.People
 
 # Keegan's query
 print("Find all locations that have been recorded that are near [93.24565, -44.8546]")
@@ -23,9 +23,16 @@ for x in locations.find(locationQuery):
 
 # Leonard's query
 print("Update the threat level of all the people born in Germany by 1")
-update = col.update_many({"country_of_birth" : "Germany"}, {"$inc": { "threat_level" : 1}})
+update = people.update_many({"country_of_birth" : "Germany"}, {"$inc": { "threat_level" : 1}})
 print(update.modified_count , "documents modified")
 
+# Luc's query
+print("\nDisplay the number of devices of each type used for searches")
+rs = db.Searches.aggregate([{"$group":
+                                 {"_id": "$device_description",
+                                  "count": {"$sum": 1}
+                                  }
+                             }])
 # db.Locations.insert_one({
 #     "_id": {
 #         "$oid": "5ecbe9923424a5bf93c3e1ef"

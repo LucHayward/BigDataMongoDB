@@ -116,15 +116,9 @@ print('1.b Inserting multiple files')
 result = db.Files.insert_many([file_1, file_2, file_3])
 print('inserted:', result.inserted_ids)
 
-# aggregate using people's current city (count the number of people currently in each city
-print('2. Grouping and counting people by city')
-x = db.People.aggregate([{"$group": {"_id": "$current_location.address.city", "count": {"$sum": 1}}}])
-for person in x:
-    pprint(person)
-
 print('-----------------------------DEBUG--------------------------------')
-print('These are all the people in the database named Elon Musk:')
-x = db.People.find({'name': 'Elon Musk'})
+print('These are all the people in the database:')
+x = db.People.find()
 for person in x:
     pprint(person)
 
@@ -133,6 +127,13 @@ x = db.Files.find()
 for file in x:
     pprint(file)
 print('------------------------------------------------------------------')
+
+# aggregate using people's current city (count the number of people currently in each city
+print('2. Grouping and counting people by city')
+x = db.People.aggregate([{"$group": {"_id": "$current_location.address.city", "count": {"$sum": 1}}}])
+for person in x:
+    pprint(person)
+
 # finds a document matching the filter and deletes it
 # returns the deleted document
 print('3. deleting one person named Elon Musk')
@@ -144,8 +145,8 @@ print('4. Deleting files belonging to the deleted person')
 db.Files.delete_many({'person_id': d.get('_id')})
 
 print('-----------------------------DEBUG--------------------------------')
-print('These are all the people in the database named Elon Musk:')
-x = db.People.find({'name': 'Elon Musk'})
+print('These are all the people in the database:')
+x = db.People.find()
 for person in x:
     pprint(person)
 

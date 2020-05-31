@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from pprint import pprint
 from random import randint
 from bson import ObjectId
+
 # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.net/test?retryWrites=true&w=majority")
 
@@ -33,7 +34,7 @@ update = col.update_many({"country_of_birth" : "Germany"}, {"$inc": { "threat_le
 print(update.modified_count , "documents modified")
 print("-----------------------------------------------------")
 # Query3: Find all the people in Sudan with threat level greater than 7
-print("is a list of people")
+print("Here is a list of people")
 for i in col.find({"country_of_birth" : "Sudan" , "threat_level" : {"$gt": 7}}):
     pprint(i)
 print("-----------------------------------------------------")
@@ -76,11 +77,11 @@ print("-----------------------------------------------------")
 
 # Exclude specific fields from the document
 # for x in col.find({},{ "_id": 0 }):
-    #print(x)
+# print(x)
 
 # Advanced queries, the first argument of the find can be used to filter results
-#for j in col.find({ "country_of_birth" : "Germany"} , { "name" : 0}):
-    #print(j)
+# for j in col.find({ "country_of_birth" : "Germany"} , { "name" : 0}):
+# print(j)
 
 # update given documents in the DB
 # query = { "name" : "John Doe" }

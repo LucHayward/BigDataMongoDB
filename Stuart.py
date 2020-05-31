@@ -1,10 +1,7 @@
 import datetime
-
-from bson import ObjectId
 from pymongo import MongoClient
 # pprint library is used to make the output look more pretty
 from pprint import pprint
-from random import randint
 
 # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient("mongodb+srv://dbUser:redcloudhorse@cluster0-p0laa.mongodb.net/test?retryWrites=true&w=majority")
@@ -94,21 +91,41 @@ person_3 = {"threat_level": 11,
             }
 
 # insert multiple records at once
+print('1.a Inserting multiple people')
 result = db.People.insert_many([person_1, person_2, person_3])
 inserted_ids = result.inserted_ids
 print('inserted:', inserted_ids)
 
+file_1 = {
+    "name": "Rocketdyne XRS-2200 specifications.txt",
+    "contents": "Propellants: LOX/LH2 \nThrust in Vacuum: 261,200 lb \nThrust at Sea Level: 206,200 lb \nIsp in vacuum (s): 428.2 \nIsp at sea level: 338.3 \nMixture Ratio: 5.5:1 \nChamber Pressure: 854 psia \nArea Ratio: 58",
+    "person_id": inserted_ids[2]
+}
+file_2 = {
+    "name": "Liquid Oxygen Prices.txt",
+    "contents": "India: 1.6 USD/kg \nGermany: 1.8 USD/kg \nChina: 1.5 USD/kg",
+    "person_id": inserted_ids[2]
+}
+
+print('1.b Inserting multiple files')
+result = db.Files.insert_many([file_1, file_2])
+print('inserted:', result.inserted_ids)
+
 # aggregate using people's current city (count the number of people currently in each city
+print('2. Grouping and counting people by city')
 x = db.People.aggregate([{"$group": {"_id": "$current_location.address.city", "count": {"$sum": 1}}}])
 for person in x:
     pprint(person)
 
-# delete files for a specific user
-db.Files.delete_many({'_id': ObjectId('5ecbea783424a5bf93c3e1f3')})
-
 # finds a document matching the filter and deletes it
 # returns the deleted document
-print('deleted: ', db.People.find_one_and_delete({'name': 'Elon Musk'}))
+print('3. deleting one person named Elon Musk')
+d = db.People.find_one_and_delete({'name': 'Elon Musk'})
+print('deleted: ', d)
+
+# delete files for the user that was just deleted
+print('4. Deleting files belonging to the deleted person')
+db.Files.delete_many({'_id': d.get('_id')})
 
 # (for debugging) print out the list of people
 x = db.People.find()

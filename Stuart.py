@@ -98,17 +98,22 @@ print('inserted:', inserted_ids)
 
 file_1 = {
     "name": "Rocketdyne XRS-2200 specifications.txt",
-    "contents": "Propellants: LOX/LH2 \nThrust in Vacuum: 261,200 lb \nThrust at Sea Level: 206,200 lb \nIsp in vacuum (s): 428.2 \nIsp at sea level: 338.3 \nMixture Ratio: 5.5:1 \nChamber Pressure: 854 psia \nArea Ratio: 58",
+    "contents": "Propellants: LOX/LH2\nThrust in Vacuum: 261,200 lb\nThrust at Sea Level: 206,200 lb\nIsp in vacuum (s): 428.2\nIsp at sea level: 338.3\nMixture Ratio: 5.5:1\nChamber Pressure: 854 psia\nArea Ratio: 58\n",
     "person_id": inserted_ids[2]
 }
 file_2 = {
     "name": "Liquid Oxygen Prices.txt",
-    "contents": "India: 1.6 USD/kg \nGermany: 1.8 USD/kg \nChina: 1.5 USD/kg",
+    "contents": "India: 1.6 USD/kg\nGermany: 1.8 USD/kg\nChina: 1.5 USD/kg\n",
     "person_id": inserted_ids[2]
+}
+file_3 = {
+    "name": "mom's berry pie recipe.txt",
+    "contents": "Ingredients: homemade pie crust (my recipe makes 2 crusts; 1 for bottom 1 for top)\n6 cups (890g) fresh blueberries\n2/3 cup (135g) granulated sugar\n1/4 cup (28g) cornstarch\n1/4 teaspoon ground cinnamon\n1 Tablespoon (15ml) lemon juice\n1 Tablespoon (15g) unsalted butter, cut into small pieces\n",
+    "person_id": inserted_ids[0]
 }
 
 print('1.b Inserting multiple files')
-result = db.Files.insert_many([file_1, file_2])
+result = db.Files.insert_many([file_1, file_2, file_3])
 print('inserted:', result.inserted_ids)
 
 # aggregate using people's current city (count the number of people currently in each city
@@ -117,6 +122,17 @@ x = db.People.aggregate([{"$group": {"_id": "$current_location.address.city", "c
 for person in x:
     pprint(person)
 
+print('-----------------------------DEBUG--------------------------------')
+print('These are all the people in the database named Elon Musk:')
+x = db.People.find({'name': 'Elon Musk'})
+for person in x:
+    pprint(person)
+
+print('These are all of the files in the database:')
+x = db.Files.find()
+for file in x:
+    pprint(file)
+print('------------------------------------------------------------------')
 # finds a document matching the filter and deletes it
 # returns the deleted document
 print('3. deleting one person named Elon Musk')
@@ -125,9 +141,16 @@ print('deleted: ', d)
 
 # delete files for the user that was just deleted
 print('4. Deleting files belonging to the deleted person')
-db.Files.delete_many({'_id': d.get('_id')})
+db.Files.delete_many({'person_id': d.get('_id')})
 
-# (for debugging) print out the list of people
-x = db.People.find()
+print('-----------------------------DEBUG--------------------------------')
+print('These are all the people in the database named Elon Musk:')
+x = db.People.find({'name': 'Elon Musk'})
 for person in x:
     pprint(person)
+
+print('These are all of the files in the database:')
+x = db.Files.find()
+for file in x:
+    pprint(file)
+print('------------------------------------------------------------------')

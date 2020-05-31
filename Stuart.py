@@ -96,12 +96,12 @@ person_3 = {"threat_level": 11,
 # insert multiple records at once
 result = db.People.insert_many([person_1, person_2, person_3])
 inserted_ids = result.inserted_ids
-print(inserted_ids)
+print('inserted:', inserted_ids)
 
 # aggregate using people's current city (count the number of people currently in each city
-x = db.People.aggregate([{"$group": {"_id": "$name", "count": {"$sum": 1}}}])
+x = db.People.aggregate([{"$group": {"_id": "$current_location.address.city", "count": {"$sum": 1}}}])
 for person in x:
-    print(person)
+    pprint(person)
 
 # delete files for a specific user
 db.Files.delete_many({'_id': ObjectId('5ecbea783424a5bf93c3e1f3')})
@@ -113,4 +113,4 @@ print('deleted: ', db.People.find_one_and_delete({'name': 'Elon Musk'}))
 # (for debugging) print out the list of people
 x = db.People.find()
 for person in x:
-    print(person)
+    pprint(person)
